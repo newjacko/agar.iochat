@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Gamer Name Generator</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <style>
+      .font1 {
+        font-family: Georgia, serif;
+        font-size: 36px;
+        color: black;
+        text-shadow: 1px 1px 1px #e1e1e1;
+      }
+      .lastFiveNames {
+        font-family: "Comic Sans MS", cursive, sans-serif;
+        font-size: 18px;
+        color: black;
+        text-shadow: 1px 1px 1px #e1e1e1;
+      }
+    </style>
+  </head>
+  <body>
+    <center>
+  <button onclick="generateGamerName()">
+        <img
+          src="https://legendmod.ml/banners/CropedImage128.gif"
+          height="10%"
+          width="10%"
+        />
+        Random Gamer Name</button><br><br>
+      <div id="gamerName"></div>
+      <br />
+      <div id="lastFiveNamesContainer">
+        <div id="lastFiveNames"></div>
+        <br />
+      </div>
+   
+
+   <script>
+  let wordList = [];
+  let thirdSourceList = [];
+  const fonts = ['font1'];
+  let lastFiveNames = [];
+  const emojis = ['😀', '🉃', '⚜️', '✧', '🕹','❗','么', '🌸', '🌹','࿈ꦼ','🐉︎','ʃ͠ᴮꜰ','ƬψƬ','ᵂᴼᵂ','弔ᴾᵉᵃ','♛','Ƀ͢͢͢Ƀ㉺','𓆩㋱𓆪','𝓜𝓚✦','⚡','〖ƝƁƘ〗','♔','฿','♪','🙤✓','「来」','𒅎','𒊳','℄','⦑ༀ࿆⦒','メ','💎','🗸','ツ','🌹','𓆩ᛃ࿆𓆪','🎀','【≽ܫ≼】','ƝƁƘ ☠', 'ƵŦ','《ℝ》','〖ƔŤṦ〗','〘ԌѺ〙','βυгƝ', '〖ＲƗＰ〗','〘Đβ誉〙','MƓR','♔ϻکя♔','𒁂','𒈞','𒍦','𒍧','𒈔','𒋲','𒇫','𒆙','𒆜','𒄬','𒅂','𒆬','𒍮','░','▒','🔰','ㅤ⇀♡•'];
+
+  // Fetch GitHub word list
+  fetch('https://raw.githubusercontent.com/dwyl/english-words/master/words.txt')
+    .then(response => response.text())
+    .then(data => {
+      wordList = data.split('\n');
+    })
+    .catch((error) => console.error('Error loading word list:', error));
+
+  // Fetch third source word list
+  fetch('https://newjackchat2.glitch.me/zzznames.txt')
+    .then(response => response.text())
+    .then(data => {
+      thirdSourceList = data.split('\n');
+    })
+    .catch((error) => console.error('Error loading third source list:', error));
+
+  async function fetchRandomUrbanWord() {
+    try {
+      const response = await axios.get("https://api.urbandictionary.com/v0/random");
+      const wordWithSpaces = response.data.list[0].word;
+      const wordWithoutSpaces = wordWithSpaces.replace(/\s+/g, '');
+      return wordWithoutSpaces;
+    } catch (error) {
+      console.error(error);
+      return null;
+    }
+  }
+
+  function getRandomEnglishWord() {
+    const randomIndex = Math.floor(Math.random() * wordList.length);
+    return wordList[randomIndex];
+  }
+
+  function getWordFromThirdSource() {
+    const randomIndex = Math.floor(Math.random() * thirdSourceList.length);
+    return thirdSourceList[randomIndex];
+  }
+
+  function applyRandomFontAndDisplay(gamerName) {
+    const randomFontIndex = Math.floor(Math.random() * fonts.length);
+    const randomFont = fonts[randomFontIndex];
+    const nameElement = document.getElementById("gamerName");
+    nameElement.innerHTML = gamerName;
+    nameElement.className = randomFont;
+
+    lastFiveNames.push(gamerName);
+    if (lastFiveNames.length > 5) {
+      lastFiveNames.shift();
+    }
+
+    const lastFiveElement = document.getElementById("lastFiveNames");
+    lastFiveElement.innerHTML = "Last 5 Names:<br>" + lastFiveNames.join(", <br>");
+  }
+
+  async function generateGamerName() {
+    const useUrbanDictionary = Math.random() < 0.33;
+    const useGithubList = Math.random() < 0.33;
+    const useThirdSource = !useUrbanDictionary && !useGithubList;
+    let randomWord = "";
+
+    if (useUrbanDictionary) {
+      randomWord = await fetchRandomUrbanWord();
+    } else if (useGithubList) {
+      randomWord = getRandomEnglishWord();
+    } else if (useThirdSource) {
+      randomWord = getWordFromThirdSource();
+    }
+
+    if (!randomWord) {
+      randomWord = getRandomEnglishWord(); // Fallback
+    }
+
+    const useEmoji = Math.random() < 0.5;
+    let randomSuffix;
+
+    if (useEmoji) {
+      const randomEmojiIndex = Math.floor(Math.random() * emojis.length);
+      randomSuffix = emojis[randomEmojiIndex];
+    } else {
+      randomSuffix = Math.floor(Math.random() * 1000); // Random number between 0-999
+    }
+
+    const placeSuffixFirst = Math.random() < 0.5;
+    if (placeSuffixFirst) {
+      randomWord = randomSuffix + randomWord;
+    } else {
+      randomWord += randomSuffix;
+    }
+
+    applyRandomFontAndDisplay(randomWord);
+  }
+</script>
+ </center>
+  </body>
+</html>

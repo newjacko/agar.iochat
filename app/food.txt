@@ -1,0 +1,200 @@
+Pizza
+Sushi
+Burger
+Pasta
+Tacos
+Ice Cream
+Chocolate
+Cheese
+Steak
+Chicken
+Salmon
+Shrimp
+Lobster
+Bacon
+Eggs
+Bread
+Rice
+Avocado
+Apples
+Bananas
+Oranges
+Strawberries
+Blueberries
+Grapes
+Watermelon
+Pineapple
+Mango
+Pears
+Peaches
+Cherries
+Lemon
+Lime
+Potatoes
+Sweet Potatoes
+Carrots
+Broccoli
+Spinach
+Kale
+Lettuce
+Tomatoes
+Cucumbers
+Peppers
+Onions
+Garlic
+Mushrooms
+Corn
+Beans
+Lentils
+Chickpeas
+Quinoa
+Oats
+Yogurt
+Milk
+Butter
+Olive Oil
+Coconut Oil
+Almonds
+Walnuts
+Cashews
+Pecans
+Pistachios
+Peanuts
+Sunflower Seeds
+Pumpkin Seeds
+Flaxseeds
+Chia Seeds
+Honey
+Maple Syrup
+Peanut Butter
+Almond Butter
+Hummus
+Pesto
+Salsa
+Guacamole
+Soy Sauce
+Vinegar
+Mustard
+Ketchup
+Mayonnaise
+Hot Sauce
+BBQ Sauce
+Teriyaki Sauce
+Pasta Sauce
+Ranch Dressing
+Caesar Dressing
+Blue Cheese Dressing
+Vinegar and Oil
+Basil
+Oregano
+Parsley
+Cilantro
+Rosemary
+Thyme
+Dill
+Mint
+Basil
+Cilantro
+Parsley
+Basil
+Chives
+Green Beans
+Asparagus
+Brussels Sprouts
+Cauliflower
+Eggplant
+Zucchini
+Squash
+Beets
+Radishes
+Turnips
+Celery
+Leeks
+Scallions
+Shallots
+Ginger
+Turmeric
+Cinnamon
+Nutmeg
+Cloves
+Cardamom
+Paprika
+Cumin
+Coriander
+Chili Powder
+Curry Powder
+Saffron
+Bay Leaves
+Sea Salt
+Black Pepper
+Red Pepper Flakes
+Sugar
+Brown Sugar
+Powdered Sugar
+Flour
+Whole Wheat Flour
+Cornmeal
+Baking Soda
+Baking Powder
+Cornstarch
+Gelatin
+Cocoa Powder
+Vanilla Extract
+Almond Extract
+Lemon Zest
+Lime Zest
+Orange Zest
+Chocolate Chips
+White Chocolate
+Dark Chocolate
+Milk Chocolate
+Semi-Sweet Chocolate
+Butterscotch
+Caramel
+Toffee
+Marshmallows
+Graham Crackers
+Cookies
+Brownies
+Cake
+Cupcakes
+Muffins
+Donuts
+Croissants
+Bagels
+Pretzels
+Crackers
+Chips
+Popcorn
+Granola
+Cereal
+Pancakes
+Waffles
+French Toast
+Crepes
+Omelettes
+Frittatas
+Quiche
+Sandwiches
+Wraps
+Burritos
+Enchiladas
+Quesadillas
+Nachos
+Fajitas
+Paella
+Risotto
+Gnocchi
+Lasagna
+Ravioli
+Spaghetti
+Fettuccine Alfredo
+Mac and Cheese
+Meatballs
+Sausages
+Hot Dogs
+Ribs
+Meatloaf
+Pot Roast
+Chicken Wings
+Fried Chicken

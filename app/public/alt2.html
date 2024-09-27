@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Letter Group Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        .letter-list {
+            margin-top: 20px;
+            list-style-type: none;
+            padding: 0;
+        }
+        .letter-list li {
+            font-size: 24px;
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Random Letter Group Generator</h1>
+    <button id="generate-button">Generate Random Letter Group (3 Letters)</button>
+    <ul class="letter-list" id="letter-list"></ul>
+    
+    <h1>Random Letter Group Generator</h1>
+    <button id="generate-button-4">Generate Random Letter Group (4 Letters)</button>
+    <ul class="letter-list" id="letter-list-4"></ul>
+
+    <script>
+      // For 3-letter groups
+      const letterList3 = [];
+      const letterListElement3 = document.getElementById("letter-list");
+      const generateButton3 = document.getElementById("generate-button");
+
+      function getRandomLetter(isVowel = false) {
+        const vowels = "AEIOUY";
+        const consonants = "BCDFGHJKLMNPQRSTVWXYZ";
+        const letters = isVowel ? vowels : consonants;
+        return letters.charAt(Math.floor(Math.random() * letters.length));
+      }
+
+      function getRandomLetterGroup3() {
+        const patternType = Math.random() < 0.5 ? "CVV" : "VCV";
+        let group = "";
+
+        if (patternType === "CVV") {
+          group += getRandomLetter(false); // Consonant
+          group += getRandomLetter(true);  // Vowel
+          group += getRandomLetter(true);  // Vowel
+        } else {
+          group += getRandomLetter(true);  // Vowel
+          group += getRandomLetter(false); // Consonant
+          group += getRandomLetter(true);  // Vowel
+        }
+
+        return group;
+      }
+
+      function updateLetterList3() {
+        letterListElement3.innerHTML = "";
+        letterList3.forEach((group) => {
+          const listItem = document.createElement("li");
+          listItem.textContent = group;
+          letterListElement3.appendChild(listItem);
+        });
+      }
+
+      generateButton3.addEventListener("click", () => {
+        const newGroup = getRandomLetterGroup3();
+        letterList3.unshift(newGroup);
+        if (letterList3.length > 10) {
+          letterList3.pop();
+        }
+        updateLetterList3();
+      });
+
+      // For 4-letter groups
+      const letterList4 = [];
+      const letterListElement4 = document.getElementById("letter-list-4");
+      const generateButton4 = document.getElementById("generate-button-4");
+
+      function getRandomLetterGroup4() {
+        const patternType = Math.random();
+        let group = "";
+
+        if (patternType < 0.33) {
+          group += getRandomLetter(false); // Consonant
+          group += getRandomLetter(true);  // Vowel
+          group += getRandomLetter(false); // Consonant
+          group += getRandomLetter(true);  // Vowel
+        } else if (patternType < 0.66) {
+          group += getRandomLetter(false); // Consonant
+          group += getRandomLetter(false); // Consonant
+          group += getRandomLetter(true);  // Vowel
+          group += getRandomLetter(true);  // Vowel
+        } else {
+          group += getRandomLetter(false); // Consonant
+          group += getRandomLetter(false); // Consonant
+          group += getRandomLetter(false); // Consonant
+          group += getRandomLetter(false); // Consonant
+        }
+
+        return group;
+      }
+
+      function updateLetterList4() {
+        letterListElement4.innerHTML = "";
+        letterList4.forEach((group) => {
+          const listItem = document.createElement("li");
+          listItem.textContent = group;
+          letterListElement4.appendChild(listItem);
+        });
+      }
+
+      generateButton4.addEventListener("click", () => {
+        const newGroup = getRandomLetterGroup4();
+        letterList4.unshift(newGroup);
+        if (letterList4.length > 10) {
+          letterList4.pop();
+        }
+        updateLetterList4();
+      });
+    </script>
+  </body>
+</html>
